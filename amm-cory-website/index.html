@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AMM Public Website — Build Workflow · Apollo XCM</title>
-  <meta name="description" content="A simple workflow so Cory can design, edit, and publish the Assurance Medication Management public website. No development skills required. Public site only — not the client portal." />
+  <meta name="description" content="A simple AI-assisted workflow so Cory can direct design and publishing for the Assurance Medication Management public website. Little clicking required. Public site only." />
   <style>
     :root {
       --axcm: #8305F2;
@@ -26,15 +26,15 @@
       min-height: 100vh;
     }
     .page {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
       padding: 1.5rem 1.25rem 3rem;
     }
     .top {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+      gap: 0.85rem;
+      margin-bottom: 1.35rem;
     }
     .logo-lockup {
       height: clamp(36px, 6vw, 48px);
@@ -50,15 +50,13 @@
       font-weight: 700;
     }
     h1 {
-      font-size: clamp(1.55rem, 4vw, 2.15rem);
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
       line-height: 1.2;
       font-weight: 750;
-      max-width: 22ch;
     }
     .lede {
       font-size: 1.05rem;
       color: var(--muted);
-      max-width: 40rem;
     }
     .pill {
       display: inline-flex;
@@ -72,22 +70,37 @@
     }
     .pill.ok { background: #e6f7ef; color: var(--ok); }
     .pill.muted {
-      background: var(--wash);
+      background: #f3f1f6;
       color: var(--muted);
       border: 1px solid var(--line);
     }
     .meta { color: var(--muted); font-size: 0.9rem; }
-    code {
+    code, .url {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 0.88em;
-      background: color-mix(in srgb, var(--wash) 60%, white);
-      padding: 0.1em 0.35em;
+      font-size: 0.86em;
+      background: color-mix(in srgb, var(--wash) 40%, white);
+      padding: 0.12em 0.35em;
       border-radius: 4px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
+    .url {
+      display: inline-block;
+      max-width: 100%;
+    }
+    ul.bullets {
+      list-style: disc;
+      padding-left: 1.25rem;
+      display: grid;
+      gap: 0.45rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+    ul.bullets li::marker { color: var(--axcm); }
+    ul.bullets strong { color: var(--ink); }
     .accordion {
       display: grid;
       gap: 0.65rem;
-      margin-top: 0.5rem;
     }
     details.panel {
       background: var(--paper);
@@ -126,16 +139,21 @@
     }
     details[open] summary .chev { transform: rotate(90deg); }
     .panel-body {
-      padding: 0 1.15rem 1.2rem;
+      padding: 0 1.15rem 1.25rem;
       display: grid;
-      gap: 0.9rem;
+      gap: 1rem;
       color: var(--muted);
-      font-size: 0.98rem;
+      font-size: 0.96rem;
     }
+    .panel-body > p { color: var(--muted); }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: 1fr;
       gap: 0.75rem;
+    }
+    @media (min-width: 640px) {
+      .grid.two { grid-template-columns: 1fr 1fr; }
+      .grid.three { grid-template-columns: 1fr; }
     }
     .card {
       background: var(--wash);
@@ -144,24 +162,33 @@
       padding: 0.95rem 1rem;
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.55rem;
+      min-width: 0;
     }
     .card h3 {
       font-size: 0.98rem;
       color: var(--axcm-deep);
       font-weight: 700;
     }
-    .card p, .card li { font-size: 0.92rem; color: var(--muted); line-height: 1.45; }
-    .card ul { padding-left: 1.1rem; display: grid; gap: 0.3rem; }
-    .stack { display: grid; gap: 0.65rem; }
+    .card .cost {
+      font-size: 0.82rem;
+      font-weight: 650;
+      color: var(--axcm-deep);
+      background: color-mix(in srgb, var(--axcm) 10%, white);
+      border-radius: 8px;
+      padding: 0.35rem 0.55rem;
+      width: fit-content;
+    }
+    .stack-steps { display: grid; gap: 0.65rem; }
     .row {
       display: flex;
       gap: 0.75rem;
       align-items: flex-start;
-      padding: 0.8rem 0.9rem;
+      padding: 0.85rem 0.95rem;
       border: 1px solid var(--line);
       border-radius: 12px;
       background: var(--wash);
+      min-width: 0;
     }
     .num {
       flex: 0 0 1.85rem;
@@ -174,8 +201,8 @@
       font-weight: 700;
       font-size: 0.85rem;
     }
-    .row strong { display: block; color: var(--ink); margin-bottom: 0.1rem; }
-    .row span { font-size: 0.92rem; }
+    .row-body { min-width: 0; flex: 1; display: grid; gap: 0.45rem; }
+    .row-body strong { color: var(--ink); display: block; }
     .foot {
       margin-top: 1.75rem;
       padding-top: 1rem;
@@ -184,9 +211,16 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      flex-wrap: wrap;
     }
     .brand-lockup { height: 22px; width: auto; display: block; }
     .foot small { color: var(--muted); font-size: 0.8rem; }
+    .note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-left: 3px solid var(--axcm);
+      padding-left: 0.75rem;
+    }
   </style>
 </head>
 <body>
@@ -195,7 +229,12 @@
       <img class="logo-lockup" src="assets/lockup-color-on-light.svg" alt="Apollo XCM" width="260" height="48" />
       <p class="eyebrow">Website workflow</p>
       <h1>Build and run the AMM public website so Cory can own it</h1>
-      <p class="lede">A simple workflow so Cory can design, edit, and publish <code>www.assurancemedicationmanagement.com</code> — without waiting on a portal vendor or a heavyweight CMS (content management system). No development skills required (HTML, CSS, and similar).</p>
+      <p class="lede">An AI-assisted workflow so Cory can direct design and publishing for <span class="url">www.assurancemedicationmanagement.com</span> — without waiting on a portal vendor or a heavyweight CMS (content management system).</p>
+      <ul class="bullets">
+        <li>No development skills required (HTML, CSS, and similar).</li>
+        <li>AI does the heavy lifting; Cory steers in plain English.</li>
+        <li>Public marketing site only — not the client portal.</li>
+      </ul>
       <span class="pill">Public site only · Not the client portal</span>
       <p class="meta">For Cory · Assurance Medication Management</p>
     </header>
@@ -205,30 +244,48 @@
       <details class="panel">
         <summary>Intro <span class="chev" aria-hidden="true">›</span></summary>
         <div class="panel-body">
-          <p>This page walks through a self-serve path for the <strong>public marketing website</strong>. Cory designs and ships updates; Lance sets up the publish path and walks the workflow once so Cory can run it going forward.</p>
-          <p>Click each section below to expand.</p>
+          <p>This page explains a self-serve path for the <strong>public marketing website</strong>.</p>
+          <ul class="bullets">
+            <li>Goal: Cory can ship site updates without becoming a developer.</li>
+            <li>Method: talk to AI like a web-design lead; AI researches, drafts, and builds.</li>
+            <li>Result: preview → publish to the live public URL.</li>
+          </ul>
+          <p class="note">Expand each section below for details.</p>
         </div>
       </details>
 
       <details class="panel">
         <summary>Scope <span class="chev" aria-hidden="true">›</span></summary>
         <div class="panel-body">
-          <div class="grid">
+          <div class="grid two">
             <div class="card">
               <span class="pill ok">In scope</span>
               <h3>Public marketing site</h3>
-              <p><code>www.assurancemedicationmanagement.com</code> — pages, content, layout, SEO-friendly hosting.</p>
+              <ul class="bullets">
+                <li><span class="url">www.assurancemedicationmanagement.com</span></li>
+                <li>Pages, content, and layout</li>
+                <li>SEO-friendly hosting (search-engine friendly)</li>
+              </ul>
             </div>
             <div class="card">
               <span class="pill muted">Out of scope</span>
               <h3>Client portal</h3>
-              <p><code>app.assurancemm.com</code> stays with Cory’s tech team. This workflow does not touch it.</p>
+              <ul class="bullets">
+                <li><span class="url">app.assurancemm.com</span></li>
+                <li>Stays with Cory’s tech team</li>
+                <li>This workflow does not touch it</li>
+              </ul>
             </div>
-            <div class="card">
-              <span class="pill ok">Roles</span>
-              <h3>Design + build</h3>
-              <p>Cory owns look, copy, and structure. Lance sets up the publish path and walks the workflow with Cory.</p>
-            </div>
+          </div>
+          <div class="card">
+            <span class="pill ok">Roles</span>
+            <h3>Who does what</h3>
+            <ul class="bullets">
+              <li><strong>Systems setup (one-time):</strong> Lance — accounts, hosting, domain connect, publish path</li>
+              <li><strong>Workflow walkthrough:</strong> Lance — sits with Cory once and runs the loop end-to-end</li>
+              <li><strong>Ongoing direction:</strong> Cory — goals, brand voice, what to change, final approve</li>
+              <li><strong>Heavy lifting:</strong> AI — research, layout drafts, copy options, file updates, publish steps</li>
+            </ul>
           </div>
         </div>
       </details>
@@ -236,32 +293,115 @@
       <details class="panel">
         <summary>Stack <span class="chev" aria-hidden="true">›</span></summary>
         <div class="panel-body">
-          <p>Three Google-simple pieces. Easy to learn, friendly to search engines, easy to hand off.</p>
+          <p>Three tools that work together. Two are Google products; GitHub is separate (owned by Microsoft) and is the industry standard place to store website files.</p>
           <div class="grid">
             <div class="card">
               <h3>GitHub</h3>
-              <p>Source of truth for site files. History and rollback if something looks off.</p>
+              <p class="cost">Typical cost: Free for a public site repo</p>
+              <ul class="bullets">
+                <li>What it is: online folder + history for every website file</li>
+                <li>Why it matters: every change is saved; easy to roll back</li>
+                <li>Who uses it day to day: AI (with Lance’s setup); Cory rarely needs to open it</li>
+                <li>Paid plans: only if private team features are needed later (~$4+/user/month) — not required for this public-site path</li>
+              </ul>
             </div>
             <div class="card">
-              <h3>Firebase Hosting</h3>
-              <p>Fast static hosting, HTTPS, and the custom domain for the public site.</p>
+              <h3>Firebase Hosting (Google)</h3>
+              <p class="cost">Typical cost: Free Spark plan is enough for most marketing sites</p>
+              <ul class="bullets">
+                <li>What it is: puts the site on the internet with HTTPS and a custom domain</li>
+                <li>Free tier includes: storage and bandwidth suited to a normal company brochure site</li>
+                <li>Paid (Blaze): only if traffic grows far past the free limits (pay for overage)</li>
+                <li>Custom domain: supported on the free plan</li>
+              </ul>
             </div>
             <div class="card">
-              <h3>Claude / Gemini</h3>
-              <p>AI pair for drafting layout and copy ideas — Cory stays editor-in-chief. No coding background required.</p>
+              <h3>Claude and/or Gemini (AI)</h3>
+              <p class="cost">Typical cost: free tiers available; Pro plans often ~$20/month if Cory wants higher limits</p>
+              <ul class="bullets">
+                <li>What it is: Cory’s web-design lead in chat form</li>
+                <li>Claude (Anthropic): strong for writing, structure, and careful edits</li>
+                <li>Gemini (Google): strong for research and Google-friendly content ideas</li>
+                <li>Cory’s job: describe the outcome in plain English; approve what looks right</li>
+              </ul>
             </div>
           </div>
+          <p class="note">Dollar figures are typical list prices and can change. Lance will confirm the exact accounts AMM should use before anything is billed.</p>
         </div>
       </details>
 
       <details class="panel">
         <summary>Workflow <span class="chev" aria-hidden="true">›</span></summary>
         <div class="panel-body">
-          <div class="stack">
-            <div class="row"><div class="num">1</div><div><strong>Design</strong><span>Sketch the page (or ask AI for a starting layout). Cory decides what goes live.</span></div></div>
-            <div class="row"><div class="num">2</div><div><strong>Build</strong><span>Update the page with AI assistance. Preview before publish — no HTML/CSS expertise needed.</span></div></div>
-            <div class="row"><div class="num">3</div><div><strong>Publish</strong><span>Push the change → Firebase updates the live public URL.</span></div></div>
-            <div class="row"><div class="num">4</div><div><strong>Iterate</strong><span>Repeat. Small changes can ship the same day. No portal release cycle.</span></div></div>
+          <p>This is not “Cory learns to code.” It is “Cory directs AI the way you’d brief a design lead.”</p>
+          <div class="stack-steps">
+            <div class="row">
+              <div class="num">1</div>
+              <div class="row-body">
+                <strong>Brief AI (minutes)</strong>
+                <ul class="bullets">
+                  <li>Cory says what needs to change (example: “refresh the homepage hero and add a clearer Services section”).</li>
+                  <li>No wireframing tools required.</li>
+                  <li>No HTML or CSS knowledge required.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="num">2</div>
+              <div class="row-body">
+                <strong>AI does the heavy lifting</strong>
+                <ul class="bullets">
+                  <li>Acts as web-design lead: proposes layout, imagery direction, and copy options.</li>
+                  <li>Can research the live site and comparable medication-management / healthcare marketing sites.</li>
+                  <li>Can run light competitive and messaging analysis so the page sounds current and clear.</li>
+                  <li>Drafts the actual page updates (structure and wording).</li>
+                  <li>Cory reviews in plain language: “keep A, change B, make the headline shorter.”</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="num">3</div>
+              <div class="row-body">
+                <strong>Preview</strong>
+                <ul class="bullets">
+                  <li>AI (or Lance on the first walkthrough) shows a private preview link.</li>
+                  <li>Cory checks it on phone and desktop.</li>
+                  <li>Nothing public changes until Cory says yes.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="num">4</div>
+              <div class="row-body">
+                <strong>Publish</strong>
+                <ul class="bullets">
+                  <li>Approved changes go to Firebase Hosting.</li>
+                  <li><span class="url">www.assurancemedicationmanagement.com</span> updates.</li>
+                  <li>GitHub keeps a history so yesterday’s version can be restored if needed.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="num">5</div>
+              <div class="row-body">
+                <strong>Iterate</strong>
+                <ul class="bullets">
+                  <li>Same loop for the next tweak.</li>
+                  <li>Small changes can ship the same day.</li>
+                  <li>No portal release cycle and no waiting on an outside builder for routine edits.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>What “wow” looks like for someone new to AI</h3>
+            <ul class="bullets">
+              <li>“Compare our Services page to three competitors and suggest a clearer outline.”</li>
+              <li>“Rewrite this section for patients’ families — 8th-grade reading level.”</li>
+              <li>“Propose a mobile-first homepage and show me two options.”</li>
+              <li>“Find broken or outdated wording on the current public site and fix it.”</li>
+            </ul>
+            <p>Cory stays in charge of taste and approvals. AI handles research, drafting, and the mechanical build steps.</p>
           </div>
         </div>
       </details>
@@ -269,31 +409,25 @@
       <details class="panel">
         <summary>Outcomes <span class="chev" aria-hidden="true">›</span></summary>
         <div class="panel-body">
-          <div class="grid">
-            <div class="card">
-              <h3>Own the site</h3>
-              <p>Cory can change headlines, sections, and pages without opening a ticket to an outside builder.</p>
-            </div>
-            <div class="card">
-              <h3>Ship safely</h3>
-              <p>Preview first, then publish. Roll back from Git history if needed.</p>
-            </div>
-            <div class="card">
-              <h3>Stay discoverable</h3>
-              <p>Static, fast pages that play well with Google — no heavy app stack on the marketing site.</p>
-            </div>
-          </div>
+          <ul class="bullets">
+            <li><strong>Ownership:</strong> Cory can direct site changes without opening a ticket to an outside builder for every edit.</li>
+            <li><strong>Speed:</strong> preview first, then publish; many updates same-day.</li>
+            <li><strong>Safety:</strong> history in GitHub; easy to roll back.</li>
+            <li><strong>Discoverability:</strong> fast static pages that work well with Google search.</li>
+            <li><strong>Low effort:</strong> Cory’s time is mostly briefing and approving — not clicking through developer tools.</li>
+          </ul>
         </div>
       </details>
 
       <details class="panel">
         <summary>Next Steps <span class="chev" aria-hidden="true">›</span></summary>
         <div class="panel-body">
-          <div class="stack">
-            <div class="row"><div class="num">1</div><div><strong>Working session this week at DMP</strong><span>Lance and Cory walk repo → preview → publish on a real page together.</span></div></div>
-            <div class="row"><div class="num">2</div><div><strong>Domain + hosting</strong><span>Point <code>www.assurancemedicationmanagement.com</code> at Firebase Hosting when ready.</span></div></div>
-            <div class="row"><div class="num">3</div><div><strong>Cory takes the wheel</strong><span>After that, Cory designs and ships; Lance stays available for the workflow, not as the permanent builder.</span></div></div>
-          </div>
+          <ul class="bullets">
+            <li><strong>Working session this week at DMP:</strong> Lance and Cory walk brief → AI draft → preview → publish on a real page.</li>
+            <li><strong>Accounts:</strong> confirm GitHub, Firebase, and Claude/Gemini access Cory will use.</li>
+            <li><strong>Domain:</strong> point <span class="url">www.assurancemedicationmanagement.com</span> at Firebase Hosting when ready.</li>
+            <li><strong>Handoff:</strong> Cory directs ongoing updates; Lance remains available for the workflow, not as the permanent page builder.</li>
+          </ul>
         </div>
       </details>
 
