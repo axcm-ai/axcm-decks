@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AXCM × AMM — Agentic pilot · Apollo XCM</title>
+  <meta name="description" content="A simple first partnership: Apollo XCM runs agents with Cory at Assurance Medication Management. Public marketing site, ops lanes, optional systems later. Not a product catalog." />
+  <style>
+    :root {
+      --axcm: #8305F2;
+      --axcm-accent: #BF05F2;
+      --axcm-deep: #5c04ab;
+      --ink: #000000;
+      --muted: #5a5268;
+      --line: #e8e2f2;
+      --paper: #ffffff;
+      --wash: #f7f4fc;
+      --ok: #0d7a4f;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: var(--wash);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    .page { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+    .top { display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1.35rem; }
+    .logo-lockup {
+      height: clamp(36px, 6vw, 48px);
+      width: auto;
+      max-width: min(260px, 80vw);
+      display: block;
+    }
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--axcm);
+      font-weight: 700;
+    }
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.05rem);
+      line-height: 1.2;
+      font-weight: 750;
+    }
+    .lede { font-size: 1.05rem; color: var(--muted); }
+    .pill {
+      display: inline-flex;
+      background: color-mix(in srgb, var(--axcm) 12%, white);
+      color: var(--axcm-deep);
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 650;
+      width: fit-content;
+    }
+    .meta { color: var(--muted); font-size: 0.9rem; }
+    .url, code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.86em;
+      background: color-mix(in srgb, var(--wash) 40%, white);
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    ul.bullets {
+      list-style: disc;
+      padding-left: 1.25rem;
+      display: grid;
+      gap: 0.45rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+    ul.bullets li::marker { color: var(--axcm); }
+    ul.bullets strong { color: var(--ink); }
+    .accordion { display: grid; gap: 0.65rem; }
+    details.panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    details.panel[open] {
+      border-color: color-mix(in srgb, var(--axcm) 35%, var(--line));
+      box-shadow: 0 6px 20px color-mix(in srgb, var(--axcm) 8%, transparent);
+    }
+    summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.15rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      user-select: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .chev {
+      flex: 0 0 auto;
+      width: 1.6rem;
+      height: 1.6rem;
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--axcm) 12%, white);
+      color: var(--axcm);
+      display: grid;
+      place-items: center;
+      font-size: 0.85rem;
+      transition: transform 160ms ease;
+    }
+    details[open] summary .chev { transform: rotate(90deg); }
+    .panel-body {
+      padding: 0 1.15rem 1.25rem;
+      display: grid;
+      gap: 0.85rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+    .card {
+      background: var(--wash);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.95rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      min-width: 0;
+    }
+    .card h3 {
+      font-size: 0.98rem;
+      color: var(--axcm-deep);
+      font-weight: 700;
+    }
+    .note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-left: 3px solid var(--axcm);
+      padding-left: 0.75rem;
+    }
+    .foot {
+      margin-top: 1.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .brand-lockup { height: 22px; width: auto; display: block; }
+    .foot small { color: var(--muted); font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <img class="logo-lockup" src="assets/lockup-color-on-light.svg" alt="Apollo XCM" width="260" height="48" />
+      <p class="eyebrow">First agentic partnership</p>
+      <h1>AXCM × AMM — try agentic work together</h1>
+      <p class="lede">Cory — this is a simple invite to be Apollo XCM’s first Agentic Engineering partner at Assurance Medication Management. Not a product catalog. Not a DIY manual. Just how we’d start, side by side.</p>
+      <ul class="bullets">
+        <li>AXCM sets up and runs the agents.</li>
+        <li>Cory steers in plain English and approves what goes live.</li>
+        <li>We learn on real work this week at DMP — then decide what “steady” looks like.</li>
+      </ul>
+      <span class="pill">Pilot partner · Informal · No SKUs</span>
+      <p class="meta">For Cory · Assurance Medication Management · From Lance</p>
+    </header>
+
+    <div class="accordion">
+
+      <details class="panel">
+        <summary>Why this, why now <span class="chev" aria-hidden="true">›</span></summary>
+        <div class="panel-body">
+          <ul class="bullets">
+            <li>AMM already trusts AXCM with real work.</li>
+            <li>You’re open to being the first client we run agents with — that’s the best way to prove the model.</li>
+            <li>We start small, on something useful, and keep the clinical client portal out of scope.</li>
+          </ul>
+          <p class="note">Out of scope on purpose: <span class="url">app.assurancemm.com</span> and clinical systems stay with your tech team.</p>
+        </div>
+      </details>
+
+      <details class="panel">
+        <summary>How we’d work together <span class="chev" aria-hidden="true">›</span></summary>
+        <div class="panel-body">
+          <div class="card">
+            <h3>Cory</h3>
+            <ul class="bullets">
+              <li>Names the outcome (“refresh the homepage,” “clear this backlog lane”).</li>
+              <li>Answers a few plain-English questions.</li>
+              <li>Approves before anything public or client-facing ships.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Lance + AXCM agents</h3>
+            <ul class="bullets">
+              <li>Stand up the path (accounts, hosting, guardrails).</li>
+              <li>Run the agents day to day — research, drafts, updates, publish steps.</li>
+              <li>Show a preview; ship only after Cory says yes.</li>
+              <li>Use the tools Lance already runs (Claude AI and Grok Bot) so Cory isn’t buying a stack to start.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="panel">
+        <summary>Idea 1 — Public site agent <span class="chev" aria-hidden="true">›</span></summary>
+        <div class="panel-body">
+          <p>A <strong>Web Dev Lead</strong> agent AXCM runs for the public marketing site.</p>
+          <ul class="bullets">
+            <li>Site: <span class="url">www.assurancemedicationmanagement.com</span></li>
+            <li>Optional domain path: <span class="url">https://assurancemm.com</span></li>
+            <li>Public marketing site only — not the AMM client portal.</li>
+            <li>Agent can research the live site, look at comparable sites, draft layout and copy, and prepare publish-ready updates.</li>
+            <li>Cory approves; AXCM handles the mechanics.</li>
+          </ul>
+          <p class="note">This is managed by AXCM — not a handoff of “here’s how to build it yourself.”</p>
+        </div>
+      </details>
+
+      <details class="panel">
+        <summary>Idea 2 — Ops lanes for AXCM ↔ AMM <span class="chev" aria-hidden="true">›</span></summary>
+        <div class="panel-body">
+          <ul class="bullets">
+            <li>We sit together and list the busy, repeatable work AXCM people do for AMM today.</li>
+            <li>We put named agents on the lanes that fit (status, follow-ups, docs routing, similar grind).</li>
+            <li>Goal: same outcomes with fewer AXCM people tied up on that book.</li>
+            <li>AMM still works with AXCM — the mix shifts toward agents + lighter human oversight.</li>
+          </ul>
+          <p class="note">No PHI on the public site. Where ops work needs PHI later, that runs only in a controlled HIPAA environment — we talk before anything sensitive.</p>
+        </div>
+      </details>
+
+      <details class="panel">
+        <summary>Idea 3 — Systems (only if useful) <span class="chev" aria-hidden="true">›</span></summary>
+        <div class="panel-body">
+          <p>Later, if it helps, we can look at tools AMM rents by the seat.</p>
+          <ul class="bullets">
+            <li>Example from AXCM’s own shop: we outgrew paying per-employee SaaS for HR-style tooling and built what we needed instead.</li>
+            <li>Same idea for AMM only where the math and the workflow say so.</li>
+            <li>Still not a pitch to replace your clinical client portal.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="panel">
+        <summary>Money — keep it simple <span class="chev" aria-hidden="true">›</span></summary>
+        <div class="panel-body">
+          <ul class="bullets">
+            <li>No rate card on this page on purpose.</li>
+            <li>After we run something real, we pick a simple monthly that costs less than the human time it replaces.</li>
+            <li>If it doesn’t feel fair or useful, we adjust — you’re the first partner, not a locked SOW.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="panel">
+        <summary>Next step <span class="chev" aria-hidden="true">›</span></summary>
+        <div class="panel-body">
+          <ul class="bullets">
+            <li><strong>This week at DMP:</strong> short working session while Cory is on site.</li>
+            <li>Pick one concrete thing — a public-site page <em>or</em> one ops pain.</li>
+            <li>Run it live: brief → agent work → preview → decide.</li>
+            <li>Leave with a clear “what we’d do next month” — still informal.</li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
+
+    <footer class="foot">
+      <img class="brand-lockup" src="assets/lockup-color-on-light.svg" alt="Apollo XCM" height="22" />
+      <small>Apollo XCM · First agentic partnership with AMM</small>
+    </footer>
+  </main>
+</body>
+</html>
