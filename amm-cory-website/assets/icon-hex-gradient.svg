@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="588" height="576" viewBox="0 0 588 576" fill="none">
+  <!-- [Apollo] Brand — AXCM vector master. Outlined Montserrat Light (interim, not original logo face).
+       Hex: pointy-top polygons approx from approved-improvements PNG geometry (PDF masters are raster embeds). -->
+  <defs>
+    <linearGradient id="hexGrad" x1="0.12" y1="0.88" x2="0.88" y2="0.12" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#8305F2"/>
+      <stop offset="100%" stop-color="#BF05F2"/>
+    </linearGradient>
+  </defs>
+  <polygon points="292.940,52.490 394.958,111.390 394.958,229.190 292.940,288.090 190.922,229.190 190.922,111.390" fill="none" stroke="url(#hexGrad)" stroke-width="36.800" stroke-linejoin="round" stroke-linecap="round"/>
+  <polygon points="154.380,290.100 256.398,349.000 256.398,466.800 154.380,525.700 52.362,466.800 52.362,349.000" fill="none" stroke="url(#hexGrad)" stroke-width="36.800" stroke-linejoin="round" stroke-linecap="round"/>
+  <polygon points="430.230,290.220 532.248,349.120 532.248,466.920 430.230,525.820 328.212,466.920 328.212,349.120" fill="none" stroke="url(#hexGrad)" stroke-width="36.800" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>
