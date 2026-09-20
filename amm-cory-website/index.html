@@ -233,9 +233,9 @@
       <ul class="bullets">
         <li>No development skills required (HTML, CSS, and similar).</li>
         <li>AI does the heavy lifting; Cory steers in plain English.</li>
-        <li>Public marketing site only — not the client portal.</li>
+        <li>Public marketing site only — not the AMM client portal.</li>
       </ul>
-      <span class="pill">Public site only · Not the client portal</span>
+      <span class="pill">Public marketing site only — not the AMM client portal</span>
       <p class="meta">For Cory · Assurance Medication Management</p>
     </header>
 
@@ -312,18 +312,35 @@
                 <li>What it is: puts the site on the internet with HTTPS and a custom domain</li>
                 <li>Free tier includes: storage and bandwidth suited to a normal company brochure site</li>
                 <li>Paid (Blaze): only if traffic grows far past the free limits (pay for overage)</li>
-                <li>Custom domain: supported on the free plan</li>
+                <li>Custom domain: supported on the free plan
+                  <ul class="bullets">
+                    <li>Example for AMM: <span class="url">https://assurancemm.com</span></li>
+                  </ul>
+                </li>
               </ul>
             </div>
             <div class="card">
-              <h3>Claude and/or Gemini (AI)</h3>
-              <p class="cost">Typical cost: free tiers available; Pro plans often ~$20/month if Cory wants higher limits</p>
+              <h3>AI options (pick one or mix)</h3>
+              <p class="cost">Typical cost: free tiers available; Pro plans often ~$20/month for higher limits</p>
               <ul class="bullets">
-                <li>What it is: Cory’s web-design lead in chat form</li>
-                <li>Claude (Anthropic): strong for writing, structure, and careful edits</li>
-                <li>Gemini (Google): strong for research and Google-friendly content ideas</li>
-                <li>Cory’s job: describe the outcome in plain English; approve what looks right</li>
+                <li>What this layer is: Cory’s web-design lead in chat form — describe the outcome in plain English; approve what looks right</li>
               </ul>
+              <h3 style="margin-top:0.35rem">Gemini (Google)</h3>
+              <ul class="bullets">
+                <li><strong>Pros:</strong> strong research; fits Google-friendly SEO ideas; free tier to start; pairs naturally with Firebase</li>
+                <li><strong>Cons:</strong> writing polish can need a second pass; free limits can throttle heavier sessions</li>
+              </ul>
+              <h3>Claude / Anthropic</h3>
+              <ul class="bullets">
+                <li><strong>Pros:</strong> excellent writing, structure, and careful page edits; clear step-by-step instructions</li>
+                <li><strong>Cons:</strong> Pro (~$20/month) is common for steady use; less “native” to Google hosting than Gemini</li>
+              </ul>
+              <h3>Cursor (Grok Bot)</h3>
+              <ul class="bullets">
+                <li><strong>Pros:</strong> desktop workflow Lance already uses; can hold project context, files, and multi-step site work; strong for end-to-end “brief → preview → publish” loops</li>
+                <li><strong>Cons:</strong> best when Lance (or a trained teammate) is in the loop at first; not a consumer chat app Cory would open alone on day one</li>
+              </ul>
+              <p class="note">Lance will recommend which option(s) fit AMM after the DMP working session — Cory does not need to decide alone.</p>
             </div>
           </div>
           <p class="note">Dollar figures are typical list prices and can change. Lance will confirm the exact accounts AMM should use before anything is billed.</p>
@@ -394,7 +411,7 @@
             </div>
           </div>
           <div class="card">
-            <h3>What “wow” looks like for someone new to AI</h3>
+            <h3>Web Dev Lead Agent — use cases</h3>
             <ul class="bullets">
               <li>“Compare our Services page to three competitors and suggest a clearer outline.”</li>
               <li>“Rewrite this section for patients’ families — 8th-grade reading level.”</li>
@@ -424,7 +441,7 @@
         <div class="panel-body">
           <ul class="bullets">
             <li><strong>Working session this week at DMP:</strong> Lance and Cory walk brief → AI draft → preview → publish on a real page.</li>
-            <li><strong>Accounts:</strong> confirm GitHub, Firebase, and Claude/Gemini access Cory will use.</li>
+            <li><strong>Accounts:</strong> confirm GitHub, Firebase, and which AI option(s) Cory will use (Gemini, Claude/Anthropic, and/or Cursor with Grok Bot).</li>
             <li><strong>Domain:</strong> point <span class="url">www.assurancemedicationmanagement.com</span> at Firebase Hosting when ready.</li>
             <li><strong>Handoff:</strong> Cory directs ongoing updates; Lance remains available for the workflow, not as the permanent page builder.</li>
           </ul>
