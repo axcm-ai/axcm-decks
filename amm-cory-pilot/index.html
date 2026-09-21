@@ -18,6 +18,7 @@
       --ok: #0d7a4f;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { color-scheme: light only; }
     body {
       font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
       color: var(--ink);
@@ -60,11 +61,19 @@
     .url, code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 0.86em;
-      background: color-mix(in srgb, var(--wash) 40%, white);
-      padding: 0.12em 0.35em;
-      border-radius: 4px;
+      color: #000000;
+      background: #ebe4f7;
+      border: 1px solid #d4c4ef;
+      padding: 0.2em 0.45em;
+      border-radius: 6px;
       overflow-wrap: anywhere;
       word-break: break-word;
+      -webkit-text-fill-color: #000000;
+    }
+    .note .url {
+      display: inline-block;
+      margin-top: 0.35rem;
+      max-width: 100%;
     }
     ul.bullets {
       list-style: disc;
@@ -181,7 +190,7 @@
             <li>You’re open to being the first client we run agents with — that’s the best way to prove the model.</li>
             <li>We start small, on something useful, and keep the clinical client portal out of scope.</li>
           </ul>
-          <p class="note">Out of scope on purpose: <span class="url">app.assurancemm.com</span> and clinical systems stay with your tech team.</p>
+          <p class="note">Out of scope on purpose — clinical systems stay with your tech team.<br /><span class="url">app.assurancemm.com</span></p>
         </div>
       </details>
 
