@@ -222,28 +222,27 @@
             <li>Cory approves; AXCM handles the mechanics.</li>
           </ul>
           <p class="note">AXCM owns setup, implementation, and any changes to AMM Public Web Lead. Cory directs in plain English, approves what publishes, and can work with the agent directly for updates and status.</p>
+
+          <details class="panel" style="margin-top:0.75rem">
+            <summary>Prerequisites and Requirements <span class="chev" aria-hidden="true">›</span></summary>
+            <div class="panel-body">
+              <p>Before the demo works end to end, these basics need to be in place. Think of it as: <strong>Cory talks to the bot → the bot updates the site in GitHub → GitHub puts the site live on Google Cloud</strong>.</p>
+
+              <ul class="bullets">
+                <li><strong>1. Host the website on Google Cloud (GCP).</strong> Put the public marketing site in one place AMM already uses for cloud work, so hosting stays in a single environment — not scattered across old tools.</li>
+                <li><strong>2. Start from Cory’s current website.</strong> Use what’s live today (and any files Cory already has). The bot can open and review the current public site as the starting point.</li>
+                <li><strong>3. The bot reviews the site and rebuilds it in GitHub.</strong> GitHub is simply the shared folder that keeps every page file and a history of changes. The bot recreates the site there so updates are clear, reviewable, and easy to undo.</li>
+                <li><strong>4. GitHub publishes the site to Google Cloud.</strong> When a change is approved, the new version goes from that shared folder out to the live public URL on Google Cloud.</li>
+                <li><strong>5. Connect the pieces so they talk to each other.</strong> One-time setup so the bot, GitHub, and Google Cloud hosting work as one path — Cory briefs in plain English; the bot drafts; people approve; then the live site updates.</li>
+              </ul>
+
+              <p class="note">Cory stays in charge of what should change and what goes live. AXCM handles the one-time setup and the “make it publish” mechanics. Nothing public changes until Cory says yes and Lance says Execute. Public marketing site only — not the client portal.</p>
+            </div>
+          </details>
+
         </div>
       </details>
-
-      <details class="panel">
-        <summary>Prerequisites and Requirements <span class="chev" aria-hidden="true">›</span></summary>
-        <div class="panel-body">
-          <p>Before the demo works end to end, these basics need to be in place. Think of it as: <strong>Cory talks to the bot → the bot updates the site in GitHub → GitHub puts the site live on Google Cloud</strong>.</p>
-
-          <ul class="bullets">
-            <li><strong>1. Host the website on Google Cloud (GCP).</strong> Put the public marketing site in one place AMM already uses for cloud work, so hosting stays in a single environment — not scattered across old tools.</li>
-            <li><strong>2. Start from Cory’s current website.</strong> Use what’s live today (and any files Cory already has). The bot can open and review the current public site as the starting point.</li>
-            <li><strong>3. The bot reviews the site and rebuilds it in GitHub.</strong> GitHub is simply the shared folder that keeps every page file and a history of changes. The bot recreates the site there so updates are clear, reviewable, and easy to undo.</li>
-            <li><strong>4. GitHub publishes the site to Google Cloud.</strong> When a change is approved, the new version goes from that shared folder out to the live public URL on Google Cloud.</li>
-            <li><strong>5. Connect the pieces so they talk to each other.</strong> One-time setup so the bot, GitHub, and Google Cloud hosting work as one path — Cory briefs in plain English; the bot drafts; people approve; then the live site updates.</li>
-          </ul>
-
-          <p class="note">Cory stays in charge of what should change and what goes live. AXCM handles the one-time setup and the “make it publish” mechanics. Nothing public changes until Cory says yes and Lance says Execute. Public marketing site only — not the client portal.</p>
-        </div>
-      </details>
-
-
-            <details class="panel">
+<details class="panel">
         <summary>Idea 2 — Ops lanes (PHI) · AXCM ↔ AMM <span class="chev" aria-hidden="true">›</span></summary>
         <div class="panel-body">
           <ul class="bullets">
